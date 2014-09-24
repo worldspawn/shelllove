@@ -10,4 +10,15 @@ param (
 }
 
 $mydocs = [Environment]::GetFolderPath("mydocuments")
-Download-File "https://git.kiandra.com.au/sam-critchley/shelllove/raw/master/scripts/PowershellProfile.ps1", "$mydocs\WindowsPowerShell"
+
+if ([System.IO.File]::Exists("$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"))
+{
+  if ([System.IO.File]::Exists("$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1.old"))
+  {
+    [System.IO.File]::Delete("$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1.old")
+  }
+
+  [System.IO.File]::Move("$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1", "$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1.old")
+}
+
+Download-File -url "https://github.com/worldspawn/shelllove/blob/master/scripts/PowershellProfile.ps1" -file "$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
