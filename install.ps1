@@ -21,4 +21,4 @@ if ([System.IO.File]::Exists("$mydocs\WindowsPowerShell\Microsoft.PowerShell_pro
   [System.IO.File]::Move("$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1", "$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1.old")
 }
 
-Download-File -url "https://github.com/worldspawn/shelllove/blob/master/scripts/PowershellProfile.ps1" -file "$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+Download-File -url "https://raw.githubusercontent.com/worldspawn/shelllove/master/scripts/PowershellProfile.ps1" -file "$mydocs\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"

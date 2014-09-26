@@ -41,7 +41,7 @@ $Completion_GoProject = {
 
   $startsWith = $wordToComplete.Substring(2)
 
-  $x = Get-ChildItem $sourcePath | ?{ $_.PSIsContainer -and ($startsWith.Length -eq 0 -or $_.Name.StartsWith($startsWith))} |
+  $x = Get-ChildItem $sourcePath | ?{ $_.PSIsContainer -and ($startsWith.Length -eq 0 -or $_.Name.StartsWith($startsWith, 1))} |
   ForEach-Object {
     New-Object System.Management.Automation.CompletionResult ('{0}{1}' -f $wordToComplete, $_.Name.Substring($startsWith.Length)), $_.Name, 'ParameterValue', ('{0} ({1})' -f "Part1", "Part2")
   }
